@@ -5,4 +5,6 @@ hm9/.vscode/*
 hm9/async_user/build/*
 
 hm9/async_user/.vscode/*
-hm9/asynclib/*
+hm9/async_user/asynclib/*
+
+hm9/CMakeFiles/*
