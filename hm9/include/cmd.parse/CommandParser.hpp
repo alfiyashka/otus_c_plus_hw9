@@ -60,10 +60,19 @@ private:
 
     bool cmdIsOnlySpace(const std::string &cmd) const;
 
+    /**
+     * writes completed bulk data into console
+     */
     void log_work();
 
+    /**
+     * writes completed bulk data into file
+     */
     void file_work();
 
+    /**
+     * get current thread id
+     */
     std::string getThreadId() const;
 
 public:
