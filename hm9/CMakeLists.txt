@@ -5,7 +5,6 @@ set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(async VERSION ${PROJECT_VERSION} LANGUAGES C CXX)
 
-
 configure_file(version.h.in version.h)
 
 set ( HW9_INCLUDE
