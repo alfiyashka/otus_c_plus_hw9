@@ -1,0 +1,48 @@
+
+name: otus_hw9
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+     - 'hm9/**'
+  pull_request:
+    branches: [ "main" ]
+    paths: 
+     - 'hm9/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - run: sudo apt-get update 
+    - run: cmake ${{github.workspace}}/hm9 -DCMAKE_BUILD_TYPE="Release" -DPATCH_VERSION=${{ github.run_number }} 
+    - run: cmake --build .
+    - run: cmake --build . --target package
+    - run: cmake --install . 
+    - run: rm -R ${{github.workspace}}/hm9/build/
+    - run: cd ${{github.workspace}}/hm9/async_user
+    - run: cmake ${{github.workspace}}/hm9/async_user -DCMAKE_BUILD_TYPE="Release" -DPATCH_VERSION=${{ github.run_number }} 
+    - run: cmake --build .
+    - run: cmake --build . --target
+
+    
+          
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+          GITHUB_TOKEN: ${{ SECRETS.GITHUB_TOKEN }}
+      with:
+        tag_name: hw9_${{ github.run_number }}
+        release_number: Release  ${{ github.run_number }}
+        draft: false
+        prerelease: false
+    - name: Upload build
+      uses: actions/upload-artifact@v4 
+      with:
+        name: homework9
+        path: /home/runner/work/otus_c_plus_hw9/otus_c_plus_hw9/
