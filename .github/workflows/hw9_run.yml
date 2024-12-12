@@ -22,14 +22,7 @@ jobs:
     - run: cmake ${{github.workspace}}/hm9 -DCMAKE_BUILD_TYPE="Release" -DPATCH_VERSION=${{ github.run_number }} 
     - run: cmake --build .
     - run: cmake --build . --target package
-    - run: cmake --install . 
-    - run: rm -R ${{github.workspace}}/hm9/build/
-    - run: cd ${{github.workspace}}/hm9/async_user
-    - run: cmake ${{github.workspace}}/hm9/async_user -DCMAKE_BUILD_TYPE="Release" -DPATCH_VERSION=${{ github.run_number }} 
-    - run: cmake --build .
-    - run: cmake --build . --target
-
-    
+    - run: cmake --install .     
           
     - name: Create Release
       id: create_release
