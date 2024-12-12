@@ -51,7 +51,7 @@ include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/asynclib/include/include)
 
 add_library(asynclib SHARED IMPORTED)
-set_property(TARGET asynclib PROPERTY IMPORTED_LOCATION ${PROJECT_DIR}/async_user/asynclib/lib/libasync.so)
+set_property(TARGET asynclib PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/libasync.so)
 
 add_executable(async_user async_user/main.cpp)
 
