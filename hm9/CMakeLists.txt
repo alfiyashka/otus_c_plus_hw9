@@ -44,21 +44,21 @@ generate_packages(${PROJECT_NAME})
 
 
 #async_user
-#project(async_user LANGUAGES C CXX)
+project(async_user LANGUAGES C CXX)
 
 
-#include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
-#include_directories(${CMAKE_CURRENT_SOURCE_DIR}/asynclib/include/include)
+include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/asynclib/include/include)
 
 
-#add_executable(async_user async_user/main.cpp)
+add_executable(async_user async_user/main.cpp)
 
-#add_library(asynclib SHARED IMPORTED)
-#set_property(TARGET asynclib PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/async_user/asynclib/lib/libasync.so)
+add_library(asynclib SHARED IMPORTED)
+set_property(TARGET asynclib PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/async_user/asynclib/lib/libasync.so)
 
-#target_link_libraries (async_user asynclib)
+target_link_libraries (async_user asynclib)
 
-#set_property(TARGET async_user PROPERTY CXX_STANDARD 20)
+set_property(TARGET async_user PROPERTY CXX_STANDARD 20)
 
 
-#install(TARGETS async_user DESTINATION .)
+install(TARGETS async_user DESTINATION .)
