@@ -34,9 +34,9 @@ add_library(async SHARED ${HW9_SOURCES})
 target_link_libraries (async Threads::Threads)
 set_property(TARGET async PROPERTY CXX_STANDARD 20)
 
-install(TARGETS async DESTINATION . ) #${PROJECT_DIR}/async_user/asynclib/lib)
+install(TARGETS async DESTINATION . )
 
-install(DIRECTORY include DESTINATION . ) #${PROJECT_DIR}/async_user/asynclib/include)
+install(DIRECTORY include DESTINATION . ) 
 
 
 include("functions.cmake")
@@ -48,10 +48,10 @@ project(async_user LANGUAGES C CXX)
 
 
 include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/asynclib/include/include)
+include_directories(hm9/asynclib/include/include)
 
 add_library(asynclib SHARED IMPORTED)
-set_property(TARGET asynclib PROPERTY IMPORTED_LOCATION libasync.so)#${CMAKE_CURRENT_SOURCE_DIR}
+set_property(TARGET asynclib PROPERTY IMPORTED_LOCATION libasync.so)
 
 add_executable(async_user async_user/main.cpp)
 
