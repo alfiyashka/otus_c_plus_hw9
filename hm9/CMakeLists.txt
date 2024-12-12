@@ -34,9 +34,9 @@ add_library(async SHARED ${HW9_SOURCES})
 target_link_libraries (async Threads::Threads)
 set_property(TARGET async PROPERTY CXX_STANDARD 20)
 
-install(TARGETS async DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/async_user/asynclib/lib)
+install(TARGETS async DESTINATION ${PROJECT_BINARY_DIR}/async_user/asynclib/lib)
 
-install(DIRECTORY include DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/async_user/asynclib/include)
+install(DIRECTORY include DESTINATION ${PROJECT_BINARY_DIR}/async_user/asynclib/include)
 
 
 include("functions.cmake")
